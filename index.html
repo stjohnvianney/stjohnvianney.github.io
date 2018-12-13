@@ -502,7 +502,7 @@
         vm.QuestionDigitOne(number);
 
         //random
-        vm.QuestionDigitTwo(Math.floor(Math.random() * vm.QuestionDigitTwoMax()) + 2);
+        vm.QuestionDigitTwo(Math.floor(Math.random() * (vm.QuestionDigitTwoMax() - 1)) + 2);
         $('#answertext').focus();
         vm.TimerText(vm.QuestionInterval());
         vm.AnswerText("");
