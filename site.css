@@ -1,0 +1,925 @@
+﻿/*
+    DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+
+
+
+.tab-pane {
+    display: block !important;
+    opacity: 1;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: rgb(232, 232, 232);
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+    .navbar.navbar-inverse {
+        border: none;
+    }
+
+    .navbar .navbar-brand {
+        padding-top: 0px;
+        padding-left: 10px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 15px;
+    }
+
+        .navbar .navbar-brand img {
+            height: 40px;
+        }
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+
+.big-icon {
+    font-size: 22px;
+}
+
+
+
+header#MyHeaderControl {
+    height: 100vh;
+    width: 100%;
+    background-image: url("https://images.pexels.com/photos/1055297/pexels-photo-1055297.jpeg?auto=compress&cs=tinysrgb&h=650&w=940");
+    background-repeat: no-repeat;
+    background-position: center 56px;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+.fixed-header {
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    perspective: 1500px;
+}
+
+
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #7386D5;
+    color: #fff;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: bottom left;
+}
+
+    #sidebar.active {
+        margin-left: -250px;
+        transform: rotateY(100deg);
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: #6d7fcc;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+        #sidebar ul li a:hover {
+            color: #7386D5;
+            background: #fff;
+        }
+
+    #sidebar ul li.active > a, a[aria-expanded="true"] {
+        color: #fff;
+        background: #6d7fcc;
+    }
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+    ul.CTAs a {
+        text-align: center;
+        font-size: 0.9em !important;
+        display: block;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article, a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+.payslipbutton {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+.payslipbutton:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+
+.controlloadingimg {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+    height: 45px;
+}
+
+.expose-hole {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 255, 0.2);
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+    #sidebarCollapse span {
+        width: 80%;
+        height: 2px;
+        margin: 0 auto;
+        display: block;
+        background: #555;
+        transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+        transition-delay: 0.2s;
+    }
+
+        #sidebarCollapse span:first-of-type {
+            transform: rotate(45deg) translate(2px, 2px);
+        }
+
+        #sidebarCollapse span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        #sidebarCollapse span:last-of-type {
+            transform: rotate(-45deg) translate(1px, -1px);
+        }
+
+
+    #sidebarCollapse.active span {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+
+h3 {
+    font-size: 3vw;
+}
+h4 {
+    font-size: 2vw;
+}
+
+p {
+    font-size: 12px;
+}
+.hidden {
+    display:none;
+}
+h2 { font-size: 30px; }
+
+.comboviewport {
+    min-width:150px;
+    width: 15vw;
+}
+
+.viewportsmall {
+    width: 5vw;
+    font-size: 12px;
+}
+
+.viewportxsmall {
+    width: 3vw;
+    font-size: 12px;
+}
+.viewportxxsmall {
+    width: 2vw;
+    font-size: 12px;
+}
+
+.viewportmedium {
+    width: 9vw;
+    font-size: 12px;
+}
+
+.border-gray {
+    border-color: lightgray
+}
+
+.payslipinput {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: lightgray;
+    text-align:right;
+    padding-right: 5px;
+}
+
+    .payslipinput:focus {
+        border-color: darkgray
+    }
+
+
+.overflow-auto {
+    overflow: auto;
+}
+
+.cardh50fixed {
+    max-height: 260px;
+    min-height: 260px;
+}
+
+.padded {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.loadingimagesmall {
+    width: 25px;
+    height: 25px;
+    padding: 0px;
+}
+
+
+.loadingimagelight {
+    /*background: url(../content/Spinner-1s-200px.gif) no-repeat center center;*/
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    rgb(232, 232, 232);
+}
+
+.nav-tabs {
+    display: none;
+}
+
+.card {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: .25rem .4rem;
+    font-size: .875rem;
+    line-height: .5;
+    border-radius: .2rem;
+    border-style: none;
+}
+
+.divscroll {
+    width: 500px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+.nav-link {
+    color: #7386D5;
+}
+
+
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+#overlaytext {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    font-size: 4vw;
+    text-align:center;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+
+.overlay .closebtn {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-size: 30px;
+    color: white;
+    z-index: 9999;
+}
+
+.expose {
+    position: relative;
+}
+
+
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 400px; /* Set a default minimum width */
+    max-width: 400px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+    z-index: 9999;
+    margin-left: -200px; /* margin is -0.5 * dimension */
+}
+
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #snackbar.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+   However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+.podbar {
+    bottom: 0;
+    position: fixed;
+    z-index: 150;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+ (document.documentElement.clientHeight-this.offsetHeight)));
+    width: 80vw;
+
+    left: 50%;
+    margin-left: -40vw; /* margin is -0.5 * dimension */
+}
+
+.podbarleft {
+    bottom: 0;
+    position: fixed;
+    z-index: 150;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+ (document.documentElement.clientHeight-this.offsetHeight)));
+    width: 80vw;
+    left: 0%;
+}
+
+
+.payslip-card-deck {
+    max-width: 80vw;
+    width: 80vw;
+}
+
+
+.loadingimagemedium {
+    width: 42px;
+    height: 42px;
+    padding: 0px;
+}
+
+.controlloadingimg {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 45px;
+    height: 45px;
+}
+
+
+.timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+}
+
+    .timeline:before {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 3px;
+        background-color: #6c757d;
+        left: 50%;
+        margin-left: -1.5px;
+    }
+
+    .timeline > li {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li > .timeline-panel {
+            width: 46%;
+            float: left;
+            border: 1px solid #d4d4d4;
+            border-radius: 2px;
+            padding: 20px;
+            position: relative;
+            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        }
+
+            .timeline > li > .timeline-panel:before {
+                position: absolute;
+                top: 26px;
+                right: -15px;
+                display: inline-block;
+                border-top: 15px solid transparent;
+                border-left: 15px solid #ccc;
+                border-right: 0 solid #ccc;
+                border-bottom: 15px solid transparent;
+                content: " ";
+            }
+
+            .timeline > li > .timeline-panel:after {
+                position: absolute;
+                top: 27px;
+                right: -14px;
+                display: inline-block;
+                border-top: 14px solid transparent;
+                border-left: 14px solid #fff;
+                border-right: 0 solid #fff;
+                border-bottom: 14px solid transparent;
+                content: " ";
+            }
+
+        .timeline > li > .timeline-badge {
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1.4em;
+            text-align: center;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            margin-left: -25px;
+            background-color: #999999;
+            z-index: 100;
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                border-left-width: 0;
+                border-right-width: 15px;
+                left: -15px;
+                right: auto;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                border-left-width: 0;
+                border-right-width: 14px;
+                left: -14px;
+                right: auto;
+            }
+
+.timeline-badge.primary {
+    background-color: #7386D5 !important;
+}
+
+.timeline-badge.success {
+    background-color: #3f903f !important;
+}
+
+.timeline-badge.warning {
+    background-color: #f0ad4e !important;
+}
+
+.timeline-badge.danger {
+    background-color: #d9534f !important;
+}
+
+.timeline-badge.info {
+    background-color: #5bc0de !important;
+}
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media screen and (min-width: 1200px) {
+    h3 {
+        font-size: 36px;
+    }
+    h4 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 12px;
+    }
+    #overlaytext {
+        font-size: 36px;
+    }
+
+    .comboviewport {
+        width: 200px;
+    }
+    .viewportsmall {
+        width: 70px;
+        font-size: 12px;
+    }
+    .viewportxsmall {
+        width: 30px;
+        font-size: 12px;
+    }
+    .viewportxxsmall {
+        width: 20px;
+        font-size: 12px;
+    }
+
+    .viewportmedium {
+        width: 11vw;
+        font-size: 12px;
+    }
+    
+}
+
+@media(min-width: 1000px) {
+
+    .viewportmedium {
+        width: 8vw;
+        font-size: 12px;
+    }
+    .viewportsmall {
+        width: 5vw;
+        font-size: 12px;
+    }
+
+    .viewportxsmall {
+        width: 3vw;
+        font-size: 12px;
+    }
+    .viewportxxsmall {
+        width: 2vw;
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .viewportmedium {
+        width: 40vw;
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 1100px) {
+
+    .viewporthide-md {
+        display: none !important;
+    }
+
+
+
+    /*.viewportmedium {
+        width: 10vw;
+        font-size: 12px;
+    }*/
+
+    .viewportsmall {
+        width: 6vw;
+        font-size: 12px;
+    }
+    .viewportxsmall {
+        width: 4vw;
+        font-size: 12px;
+    }
+    .viewportxxsmall {
+        width: 2vw;
+        font-size: 12px;
+    }
+
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+        transform: rotateY(90deg);
+    }
+
+    /*.page-item {
+        width: 25px;
+    }*/
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 15px;
+    }
+
+    .tab-pane {
+        display: block !important;
+        opacity: 1;
+    }
+
+    .viewportmedium {
+        width: 35vw;
+        font-size: 12px;
+    }
+
+    .viewportsmall {
+        width: 20vw;
+        font-size: 12px;
+    }
+
+    .viewportxsmall {
+        width: 15vw;
+        font-size: 12px;
+    }
+
+    .viewportxxsmall {
+        width: 12vw;
+        font-size: 12px;
+    }
+
+    /*.card-deck .card {
+        flex: 0 0 calc(33.3333333333% - 30px);
+        height: 129px;
+    }
+
+
+    .card-deck .cardh50 {
+        flex: 0 0 calc(33.3333333333% - 30px);
+        min-height: 230px;
+        height: 34vh;
+    }*/
+    
+    .viewporthide {
+        display: none !important;
+    }
+    
+
+        #sidebar.active {
+            margin-left: 0;
+            transform: none;
+        }
+
+    #sidebarCollapse span:first-of-type,
+    #sidebarCollapse span:nth-of-type(2),
+    #sidebarCollapse span:last-of-type {
+        transform: none;
+        opacity: 1;
+        margin: 5px auto;
+    }
+
+    #sidebarCollapse.active span {
+        margin: 0 auto;
+    }
+
+        #sidebarCollapse.active span:first-of-type {
+            transform: rotate(45deg) translate(2px, 2px);
+        }
+
+        #sidebarCollapse.active span:nth-of-type(2) {
+            opacity: 0;
+        }
+
+        #sidebarCollapse.active span:last-of-type {
+            transform: rotate(-45deg) translate(1px, -1px);
+        }
+
+
+
+    ul.timeline:before {
+        left: 40px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 90px);
+        width: -moz-calc(100% - 90px);
+        width: -webkit-calc(100% - 90px);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        left: 15px;
+        margin-left: 0;
+        top: 16px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+        ul.timeline > li > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+}
+
+
+
+@media (min-width: 0) {
+    .card-deck .card {
+        flex: 0 0 calc(100% - 30px);
+        height: 129px;
+    }
+
+    .card-deck .cardh50 {
+        flex: 0 0 calc(100% - 30px);
+        min-height: 230px;
+        height: 34vh;
+    }
+
+}
+
+
+/*@media (min-width: 768px) {
+    .nav-tabs {
+        display: flex;
+    }
+
+    .navcard {
+        border: none;
+    }
+
+        .navcard .card-header {
+            display: none;
+        }
+
+        .navcard .collapse {
+            display: block;
+        }
+
+}*/
+
+
+@media (min-width: 1050px) {
+    .card-deck .card {
+        flex: 0 0 calc(33.3333333333% - 30px);
+        height: 129px;
+    }
+    .card-deck .cardh50 {
+        flex: 0 0 calc(33.3333333333% - 30px);
+        min-height: 230px;
+        height: 34vh;
+    }
+}
+

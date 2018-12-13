@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <link rel="stylesheet" href="site.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax.js/1.3.1/parallax.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+
+</head>
+<body>
+    <div class="container">
+
+
+        <div id="content" class="tab-content" role="tablist">
+            <div id="pane-A" class="card navcard tab-pane fade show" role="tabpanel" aria-labelledby="tab-A">
+                <div class="navcard card-header" role="tab" id="heading-A">
+                    <h5 class="mb-0" style="text-align:center">
+                        <span class="collapsed" data-toggle="collapse" data-bind="text: TimerText" href="#collapse-A" data-parent="#content" aria-expanded="false" aria-controls="collapse-A">
+
+                        </span>
+
+                    </h5>
+                    <hr />
+                    <button type="button" class="form-control" data-bind="click: StartClick, text: ButtonText, css: ButtonCss "></button>
+                </div>
+                <div id="collapse-A" role="tabpanel" aria-labelledby="heading-A">
+                    <div class="navcard card-body">
+                        <h4 class="text-secondary" data-bind="visible: TimerActive">
+                            Question <span data-bind="text: QuestionNumber"></span> / <span data-bind="text: NumberOfQuestions"></span>:
+                        </h4>
+                        <h2 style="text-align:center"  data-bind="visible: TimerActive"><span data-bind="text: QuestionDigitOne"></span> x <span data-bind="text: QuestionDigitTwo"></span><span> = </span><span class="text-success" data-bind="text: AnswerText, css: { 'text-success': AnswerIsCorrect }"></span></h2>
+                        <hr />
+                        <input id="answertext" style="font-size:30px;" type="text" class="form-control" placeholder="Click here to type or use buttons below..." data-bind="value: AnswerText, valueUpdate:'input'" />
+                        <hr />
+                        <div class="row" style="padding-bottom:10px;">
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: SevenClick">7</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: EightClick">8</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: NineClick">9</h2></button>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom:10px">
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: FourClick">4</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: FiveClick">5</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: SixClick">6</h2></button>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom:10px">
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: OneClick">1</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: TwoClick">2</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: ThreeClick">3</h2></button>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom:10px">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: ZeroClick">0</h2></button>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="button" class="btn btn-outline-secondary btn-block"><h2 data-bind="click: BackspaceClick"><i class="fas fa-chevron-left"></i></h2></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="pane-B" class="card navcard tab-pane fade show" role="tabpanel" aria-labelledby="tab-B">
+                <div class="navcard card-header" role="tab" id="heading-B">
+                    <h5 class="mb-0">
+                        <span class="collapsed" data-toggle="collapse" href="#collapse-B" data-parent="#content" aria-expanded="false" aria-controls="collapse-B">
+                            Results <small class="text-muted"><strong>Score: <span data-bind="text: CorrectAnswers"></span> / <span data-bind="text: NumberOfQuestions"></span> </strong></small> <small class="text-muted" style="float:right"> Click to expand</small>
+                        </span>
+                    </h5>
+                </div>
+                <div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+                    <div class="navcard card-body">
+                        <table class="table table-hover ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        Question
+                                    </th>
+                                    <th scope="col">
+                                        Answer
+                                    </th>
+                                    <th scope="col">
+                                        Submitted Answer
+                                    </th>
+                                    <th scope="col">
+                                        Correct?
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody data-bind="foreach: Results">
+                                <tr data-bind="attr { class: Correct ? 'text-success' : 'text-danger' }">
+                                    <td data-bind="text: QuestionDigitOne + ' x ' + QuestionDigitTwo"></td>
+                                    <td data-bind="text: AnswerText"></td>
+                                    <td data-bind="text: SubmittedAnswerText"></td>
+                                    <td data-bind="text: Correct ? 'Yes' : 'No'"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="pane-C" class="card navcard tab-pane fade show" role="tabpanel" aria-labelledby="tab-C">
+                <div class="navcard card-header" role="tab" id="heading-C">
+                    <h5 class="mb-0">
+                        <span class="collapsed" data-toggle="collapse" href="#collapse-C" data-parent="#content" aria-expanded="false" aria-controls="collapse-C">
+                            Settings
+                        </span>
+                    </h5>
+                </div>
+                <div id="collapse-C" class="collapse" role="tabpanel" aria-labelledby="heading-C">
+                    <div class="navcard card-body">
+                        <h4 class="text-secondary">
+                            Settings
+
+                        </h4>
+                        <div class="form-group">
+                            <label for="numberOfQuestions" class="text-primary">Number Of Questions: </label>
+                            <input class="form-control" type="number" id="numberOfQuestions" data-bind="value:NumberOfQuestions" />
+                        </div>
+                        <div class="form-group">
+                            <label for="q1" class="text-primary">Question Digit 1 Max number: </label>
+                            <input class="form-control" type="number" id="q1" data-bind="value:QuestionDigitOneMax" />
+                        </div>
+                        <div class="form-group">
+                            <label for="q2" class="text-primary">Question Digit 2 Max number: </label>
+                            <input class="form-control" type="number" id="q2" data-bind="value:QuestionDigitTwoMax" />
+                        </div>
+                        <div class="form-group">
+                            <label for="interval" class="text-primary">Question Interval: </label>
+                            <input class="form-control" type="number" id="interval" data-bind="value:QuestionInterval" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    function AppViewModel() {
+        
+        var self = this;
+        self.TimerText = ko.observable("Press Start");
+        self.ButtonText = ko.observable("Start");
+        self.ButtonCss = ko.observable("form-control btn-primary btn-block");
+        self.AnswerText = ko.observable("");
+        self.TimerActive = ko.observable(false);
+        self.QuestionDigitOne = ko.observable("");
+        self.QuestionDigitTwo = ko.observable("");
+        self.NumberOfQuestions = ko.observable(10);
+        self.QuestionNumber = ko.observable(1);
+        self.QuestionDigitOneMax = ko.observable(12);
+        self.QuestionDigitTwoMax = ko.observable(12);
+        self.Results = ko.observableArray([]);
+        self.QuestionInterval = ko.observable(5);
+        self.AnswerIsCorrect = ko.computed(function () {
+            var answer = self.QuestionDigitOne() * self.QuestionDigitTwo();
+            var result = (self.AnswerText() == answer);
+
+            //if (result) {
+            //    LogResult(self.QuestionDigitOne(), self.QuestionDigitTwo(), answer, self.AnswerText(), true);
+            //}
+
+            return result;
+
+        }); 
+
+        self.CorrectAnswers = ko.observable(0);
+    }
+
+    function ZeroClick() {
+        vm.AnswerText(vm.AnswerText() + '0');
+    }
+    function OneClick() {
+        vm.AnswerText(vm.AnswerText() + '1');
+    }
+
+    function TwoClick() {
+        vm.AnswerText(vm.AnswerText() + '2');
+    }
+    function ThreeClick() {
+        vm.AnswerText(vm.AnswerText() + '3');
+    }
+
+    function FourClick() {
+        vm.AnswerText(vm.AnswerText() + '4');
+    }
+
+    function FiveClick() {
+        vm.AnswerText(vm.AnswerText() + '5');
+    }
+
+    function SixClick() {
+        vm.AnswerText(vm.AnswerText() + '6');
+    }
+
+    function SevenClick() {
+        vm.AnswerText(vm.AnswerText() + '7');
+    }
+
+    function EightClick() {
+        vm.AnswerText(vm.AnswerText() + '8');
+    }
+
+    function NineClick() {
+        vm.AnswerText(vm.AnswerText() + '9');
+    }
+
+
+    function BackspaceClick() {
+        
+        vm.AnswerText(vm.AnswerText().substring(0, vm.AnswerText().length - 1));
+    }
+
+
+    function QuestionResult(questionDigitOne, questionDigitTwo, answerText, submittedAnswerText, correct) {
+        var $this = this;
+        $this.QuestionDigitOne = questionDigitOne;
+        $this.QuestionDigitTwo = questionDigitTwo;
+        $this.AnswerText = answerText;
+        $this.SubmittedAnswerText = submittedAnswerText;
+        $this.Correct = correct;
+    }
+
+    function LogResult(questionDigitOne, questionDigitTwo, answerText, submittedAnswerText, correct) {
+        if (vm != null && vm.Results != null && questionDigitOne != '' && questionDigitTwo != '' && answerText != '') {
+            if (correct) {
+                vm.CorrectAnswers(vm.CorrectAnswers() + 1);
+            }
+            vm.Results.push(new QuestionResult(questionDigitOne, questionDigitTwo, answerText, submittedAnswerText, correct));
+        }
+    }
+
+    function StartClick() {
+        if (vm.ButtonText() == "Stop") {
+            vm.TimerActive(false);
+            vm.TimerText("Press Start");
+            vm.ButtonText("Start");
+            vm.ButtonCss("form-control btn-primary btn-block");
+            vm.AnswerText("");
+            vm.QuestionDigitOne("");
+            vm.QuestionDigitTwo("");
+            vm.QuestionNumber(1);
+        }
+        else {
+            vm.TimerActive(true);
+            vm.TimerText(vm.QuestionInterval());
+            vm.ButtonText("Stop");
+            vm.ButtonCss("form-control btn-danger btn-block");
+            vm.AnswerText("");
+            vm.QuestionNumber(1);
+            Question();
+        }
+        
+
+    }
+    function Timedown() {
+        if (vm.TimerActive()) {
+
+            setTimeout(function () {
+                Timer();
+            }, 1000);
+        }
+    }
+
+    function Timer() {
+        if (vm.TimerActive()) {
+            var time = vm.TimerText();
+            if (time - 1 == 0) {
+                console.log("next question");
+                NextQuestion();
+            }
+            else {
+                vm.TimerText(vm.TimerText() - 1);
+                Timedown();
+            }
+        }
+    }
+
+    function StopTest() {
+        vm.TimerActive(false);
+        vm.TimerText("Finished!");
+        vm.ButtonText("Start");
+        vm.ButtonCss("form-control btn-primary btn-block");
+        vm.AnswerText("");
+        vm.QuestionDigitOne("");
+        vm.QuestionDigitTwo("");
+    }
+
+    function NextQuestion() {
+        if (vm.TimerActive()) {
+            var answer = vm.QuestionDigitOne() * vm.QuestionDigitTwo();
+            LogResult(vm.QuestionDigitOne(), vm.QuestionDigitTwo(), answer, vm.AnswerText(), vm.AnswerText() == answer);
+            
+            if (vm.QuestionNumber() + 1 > vm.NumberOfQuestions()) {
+                StopTest();
+            }
+            else {
+                vm.QuestionNumber(vm.QuestionNumber() + 1);
+                Question();
+            }
+            
+        }
+    }
+
+    function Question() {
+        vm.QuestionDigitOne(Math.floor(Math.random() * vm.QuestionDigitOneMax()) + 1);
+        vm.QuestionDigitTwo(Math.floor(Math.random() * vm.QuestionDigitTwoMax()) + 1);
+        $('#answertext').focus();
+        vm.TimerText(vm.QuestionInterval());
+        vm.AnswerText("");
+        Timedown();
+    }
+    
+    var vm = new AppViewModel();
+
+
+    $(document).ready(function () {
+        ko.applyBindings(vm);
+
+
+    });
+</script>
