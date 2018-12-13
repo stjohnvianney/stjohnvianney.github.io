@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -156,10 +156,10 @@
                             <label for="numberOfQuestions" class="text-primary">Number Of Questions: </label>
                             <input class="form-control" type="number" id="numberOfQuestions" data-bind="value:NumberOfQuestions" />
                         </div>
-                        <div class="form-group">
+                        <!--<div class="form-group">
                             <label for="q1" class="text-primary">Question Digit 1 Max number: </label>
                             <input class="form-control" type="number" id="q1" data-bind="value:QuestionDigitOneMax" />
-                        </div>
+                        </div>-->
                         <div class="form-group">
                             <label for="q2" class="text-primary">Question Digit 2 Max number: </label>
                             <input class="form-control" type="number" id="q2" data-bind="value:QuestionDigitTwoMax" />
@@ -168,6 +168,79 @@
                             <label for="interval" class="text-primary">Question Interval: </label>
                             <input class="form-control" type="number" id="interval" data-bind="value:QuestionInterval" />
                         </div>
+                        <label>Times Tables</label>
+                        <br />
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:TwoTimesTable">2
+                            </label>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:ThreeTimesTable">3
+                            </label>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:FourTimesTable">4
+                            </label>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:FiveTimesTable">5
+                            </label>
+                        </div>
+
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:SixTimesTable">6
+                            </label>
+                        </div>
+
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:SevenTimesTable">7
+                            </label>
+                        </div>
+
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:EightTimesTable">8
+                            </label>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:NineTimesTable">9
+                            </label>
+                        </div>
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:TenTimesTable">10
+                            </label>
+                        </div>
+
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:ElevenTimesTable">11
+                            </label>
+                        </div>
+
+
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input" data-bind="checked:TwelveTimesTable">12
+                            </label>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -207,6 +280,17 @@
         }); 
 
         self.CorrectAnswers = ko.observable(0);
+        self.TwoTimesTable = ko.observable(true);
+        self.ThreeTimesTable = ko.observable(true);
+        self.FourTimesTable = ko.observable(true);
+        self.FiveTimesTable = ko.observable(true);
+        self.SixTimesTable = ko.observable(true);
+        self.SevenTimesTable = ko.observable(true);
+        self.EightTimesTable = ko.observable(true);
+        self.NineTimesTable = ko.observable(true);
+        self.TenTimesTable = ko.observable(true);
+        self.ElevenTimesTable = ko.observable(true);
+        self.TwelveTimesTable = ko.observable(true);
     }
 
     function ZeroClick() {
@@ -284,9 +368,9 @@
             vm.QuestionNumber(1);
         }
         else {
-            vm.TimerActive(true);
-            vm.CorrectAnswers(0);
             vm.Results([]);
+            vm.CorrectAnswers(0);
+            vm.TimerActive(true);
             vm.TimerText(vm.QuestionInterval());
             vm.ButtonText("Stop");
             vm.ButtonCss("form-control btn-danger btn-block");
@@ -346,9 +430,79 @@
         }
     }
 
+    function GetValidTimesTableNumbers() {
+        var numbers = [];
+        if (vm.TwoTimesTable()) {
+            numbers.push(2);
+        }
+
+
+        if (vm.ThreeTimesTable()) {
+            numbers.push(3);
+        }
+
+
+        if (vm.FourTimesTable()) {
+            numbers.push(4);
+        }
+
+
+        if (vm.FiveTimesTable()) {
+            numbers.push(5);
+        }
+
+
+        if (vm.SixTimesTable()) {
+            numbers.push(6);
+        }
+
+
+        if (vm.SevenTimesTable()) {
+            numbers.push(7);
+        }
+
+
+        if (vm.EightTimesTable()) {
+            numbers.push(8);
+        }
+
+
+        if (vm.NineTimesTable()) {
+            numbers.push(9);
+        }
+
+
+        if (vm.TenTimesTable()) {
+            numbers.push(10);
+        }
+
+
+        if (vm.ElevenTimesTable()) {
+            numbers.push(11);
+        }
+
+
+        if (vm.TwelveTimesTable()) {
+            numbers.push(12);
+        }
+
+        return numbers;
+    }
+
     function Question() {
-        vm.QuestionDigitOne(Math.floor(Math.random() * vm.QuestionDigitOneMax()) + 1);
-        vm.QuestionDigitTwo(Math.floor(Math.random() * vm.QuestionDigitTwoMax()) + 1);
+
+        var numbers = GetValidTimesTableNumbers();
+        var randomIndex = Math.floor(Math.random() * (numbers.length));
+        console.log(randomIndex);
+        var number = numbers[randomIndex];
+
+        if (number < 2)
+            number = 2;
+
+        vm.QuestionDigitOne(number);
+
+        //random
+        vm.QuestionDigitTwo(Math.floor(Math.random() * vm.QuestionDigitTwoMax()) + 2);
         $('#answertext').focus();
         vm.TimerText(vm.QuestionInterval());
         vm.AnswerText("");
