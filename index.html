@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>St John Vianney Number Test</title>
 
     <link rel="stylesheet" href="site.css">
 
@@ -188,12 +188,12 @@
         self.TimerActive = ko.observable(false);
         self.QuestionDigitOne = ko.observable("");
         self.QuestionDigitTwo = ko.observable("");
-        self.NumberOfQuestions = ko.observable(10);
+        self.NumberOfQuestions = ko.observable(20);
         self.QuestionNumber = ko.observable(1);
         self.QuestionDigitOneMax = ko.observable(12);
         self.QuestionDigitTwoMax = ko.observable(12);
         self.Results = ko.observableArray([]);
-        self.QuestionInterval = ko.observable(5);
+        self.QuestionInterval = ko.observable(6);
         self.AnswerIsCorrect = ko.computed(function () {
             var answer = self.QuestionDigitOne() * self.QuestionDigitTwo();
             var result = (self.AnswerText() == answer);
